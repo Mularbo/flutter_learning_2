@@ -11,14 +11,51 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey.shade700,
         appBar: AppBar(
           backgroundColor: Colors.blueGrey.shade800,
           title: Center(child: Text("App Bar")),
         ),
-        body: const Center(
-          child: Image(
-            image: AssetImage("assets/images/MobileLogin.png"),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Text("testing"),
+                  Icon(Icons.done_all_rounded),
+                  Text("Testing"),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.pink,
+                child: const Center(child: Text("Container 1")),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.blue,
+                child: const Center(child: Text("Container 2")),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.teal,
+                child: const Center(child: Text("Container 3")),
+              )
+            ],
           ),
         ),
       ),
