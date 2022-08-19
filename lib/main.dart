@@ -13,7 +13,15 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blueGrey.shade800,
-          title: Center(child: Text("App Bar")),
+          title: const Center(
+            child: Text(
+              "App Bar",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontFamily: "Pacifico",
+                  fontWeight: FontWeight.w300),
+            ),
+          ),
         ),
         body: SafeArea(
           child: Column(
@@ -22,10 +30,15 @@ class MyApp extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Text("testing"),
-                  Icon(Icons.done_all_rounded),
-                  Text("Testing"),
+                children: [
+                  Text(
+                    "Testing",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontFamily: "Pacifico",
+                        decoration: TextDecoration.underline,
+                        color: Colors.teal.shade400),
+                  ),
                 ],
               ),
               SizedBox(
