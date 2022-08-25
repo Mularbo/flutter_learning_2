@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tb_course/home.dart';
+import 'package:tb_course/student-screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,12 +14,14 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final ageController = TextEditingController();
+  List items = ['Admin', 'Student', 'Teacher'];
+  String selectedItem = 'Student';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("login"),
+        title: Text("Sign Up"),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -59,7 +62,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(15))),
                   prefixIcon: Icon(Icons.info_outline_rounded),
                 )),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 30,
+            ),
             Center(
               child: InkWell(
                 onTap: (() async {
@@ -67,9 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   sp.setString("email", emailController.text.toString());
                   sp.setString("age", ageController.text.toString());
-                  sp.setBool('isLogin', true);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => HomeScreen())));
+                  // admin , student, teacher
+                  sp.setString("userType", "student");
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => StudentScreen())));
                 }),
                 child: Container(
                   decoration: BoxDecoration(
@@ -79,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: Center(
                     child: Text(
-                      "Login",
+                      "sign UP",
                     ),
                   ),
                 ),
