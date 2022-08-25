@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
     
-
+  math_expressions: ^2.3.1
   pin_code_fields: ^7.4.0
   animated_text_kit: ^4.2.2
   # The following adds the Cupertino Icons font to your application.
