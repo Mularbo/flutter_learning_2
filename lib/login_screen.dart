@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,8 +19,16 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Center(
               child: InkWell(
-                onTap: () {
-                  asifTaj();
+                onTap: () async {
+                  SharedPreferences sp = await SharedPreferences.getInstance();
+                  sp.setString("name", "asif taj");
+                  sp.setInt("age", 25);
+                  sp.setBool("isLogin", false);
+                  print(sp.getString("name"));
+                  print(sp.getInt("age").toString());
+                  print(sp.getBool("isLogin"));
+
+                  sp.remove("name");
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -39,10 +48,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> asifTaj() async {
-    await Future.delayed(Duration(seconds: 5));
-    print("delayed");
   }
 }
