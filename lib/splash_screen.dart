@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tb_course/home.dart';
 import 'package:tb_course/login_screen.dart';
 
@@ -16,10 +17,24 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 4), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: ((context) => LoginScreen())));
-    });
+    isLogin();
+  }
+
+  void isLogin() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    bool isLogin = sp.getBool('isLogin') ?? false;
+
+    if (isLogin) {
+      Timer(Duration(seconds: 2), () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => HomeScreen())));
+      });
+    } else {
+      Timer(Duration(seconds: 2), () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => LoginScreen())));
+      });
+    }
   }
 
   @override
