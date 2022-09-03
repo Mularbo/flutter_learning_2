@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tb_course/POSTapis/signup.dart';
-
-import 'getapis/example_five.dart';
-// import 'package:tb_course/example_three.dart';
-// import 'package:tb_course/example_two.dart';
-// import 'package:tb_course/home_screen.dart';
+import 'package:flutter_application_1/post%20api/uploadimage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: UploadImageScreen(),
     );
   }
 }

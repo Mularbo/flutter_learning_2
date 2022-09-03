@@ -1,7 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tb_course">
+    package="com.example.flutter_application_1">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
    <application
-        android:label="tb_course"
+        android:label="flutter_application_1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
